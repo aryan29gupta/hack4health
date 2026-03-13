@@ -8,7 +8,7 @@ import DoctorProfileDashboard from "./app/DoctorProfile";
 import VedsevaPatientProfile from "./app/PatientProfile";
 import NurseProfile from "./app/NurseProfile";
 import NGODashboard from "./app/NGOProfile";
-import BookAppointmentPage from "./app/BookAppoinment";
+import BookAppointmentPage from "./app/BookAppointment";
 import PatientSignupPage from "./app/PatientSignup";
 
 function App() {

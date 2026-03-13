@@ -50,10 +50,10 @@ export default function PatientLoginPage() {
     
     try {
   const { data: userData, error: fetchError } = await supabase
-    .from('patient')
+    .from('Patient')
     .select('*')
-    .eq('aadharno', Number(username.trim()))  // convert Aadhaar to number
-    .eq('password', Number(password))         // convert password to number
+    .eq('aadharno', username.trim())  // passing as string to retain exact digits
+    .eq('phoneno', password.trim())   // password input is actually the phoneno column
     .single();
 
   if (fetchError || !userData) {

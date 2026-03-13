@@ -50,12 +50,20 @@ export default function DoctorLoginPage() {
     
     try {
       // Query Supabase table for matching username + password
+      const cleanUsername = username.trim();
+      const cleanPassword = password.trim();
+      
+      console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL); // Verify env var is loaded
+      console.log("Querying for:", { username: cleanUsername, password: cleanPassword });
+
       const { data, error } = await supabase
-        .from("doctor")
+        .from("Doctor")
         .select("*")
-        .eq("username", username)
-        .eq("password", password)
+        .eq("username", cleanUsername)
+        .eq("password", cleanPassword)
         .maybeSingle();
+
+      console.log("Supabase response:", { data, error, debugError: JSON.stringify(error) });
 
       if (error || !data) {
         console.error("Login failed:", error);

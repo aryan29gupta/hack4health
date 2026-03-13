@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import Footer from '../components/ui/footer';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../supabaseClient';
 
 export default function NGOLoginPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,13 +63,27 @@ export default function NGOLoginPage() {
     setErrors({});
     setIsLoading(true);
     
-    // Simulate login process
-    setTimeout(() => {
+    try {
+      const { data, error } = await supabase
+        .from("NGO")
+        .select("*")
+        .eq("name", ngoName)
+        .eq("password", password)
+        .maybeSingle();
+
+      if (error || !data) {
+        console.error("Login failed:", error);
+        setErrors({ ngoName: "Invalid NGO name or password" });
+      } else {
+        localStorage.setItem("currentNGO", JSON.stringify(data));
+        navigate("/NGO-profile");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setErrors({ ngoName: "Something went wrong. Try again." });
+    } finally {
       setIsLoading(false);
-      // Handle successful login logic here
-      navigate("/NGO-profile")
-      console.log('Login attempt:', { ngoName, username, password, selectedState, rememberMe });
-    }, 2000);
+    }
   };
 
   const handleKeyPress = (e) => {

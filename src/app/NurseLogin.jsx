@@ -51,9 +51,9 @@ export default function NurseLoginPage() {
     try {
         // Query Supabase table for matching username + password
         const { data, error } = await supabase
-          .from("doctor") // 👈 replace with your actual table name
+          .from("Nurse") // 👈 replace with your actual table name
           .select("*")
-          .eq("username", username)
+          .eq("name", username)
           .eq("password", password)
           .maybeSingle();
     

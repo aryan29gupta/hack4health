@@ -430,8 +430,8 @@ const filteredMedicines = medicineDatabase.filter((med) =>
       localStorage.setItem("selectedDisease", selectedDisease);
     }
     alert("Prescription and remarks have been saved!");
-    // The original JS navigated to digital_sign.html. We will navigate back to appointments or sign page.
-    navigate('/doctor-appointments', { replace: true });
+    // Navigate to the new prescription results page
+    navigate('/prescription', { replace: true });
   };
 
   // Outside click simulation for dropdowns

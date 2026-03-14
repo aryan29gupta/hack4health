@@ -1,0 +1,241 @@
+.webrtc_patient_wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d30 100%);
+    color: white;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Lobby Styles */
+.lobby_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.form_container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.form_header {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.emoji {
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+.input_group {
+    margin-bottom: 20px;
+}
+
+.input_text {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input_text::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input_text:focus {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.02);
+}
+
+.btn {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+}
+
+.btn_secondary {
+    background: linear-gradient(45deg, #a55eea, #8854d0);
+}
+
+.btn_secondary:hover {
+    box-shadow: 0 8px 25px rgba(165, 94, 234, 0.4);
+}
+
+/* Video Chat Styles */
+.video_container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.video_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    background: #000;
+}
+
+.video_wrapper {
+    position: relative;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video_player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+.local_video {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    border: 3px solid #667eea;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    object-fit: cover;
+}
+
+.remote_video {
+    width: 100%;
+    height: 100%;
+}
+
+.video_placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #666;
+}
+
+.controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.control_btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.control_btn:hover {
+    transform: scale(1.1);
+}
+
+.control_btn_active {
+    background: #4CAF50;
+}
+
+.control_btn_muted {
+    background: #f44336;
+}
+
+.control_btn_end_call {
+    background: #f44336;
+}
+
+.control_btn_end_call:hover {
+    background: #d32f2f;
+}
+
+.status {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.status_connected {
+    background: rgba(76, 175, 80, 0.8);
+}
+
+.status_connecting {
+    background: rgba(255, 193, 7, 0.8);
+}
+
+.status_disconnected {
+    background: rgba(244, 67, 54, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .local_video {
+        width: 120px;
+        height: 90px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .controls {
+        gap: 15px;
+        bottom: 20px;
+    }
+
+    .control_btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* Hidden class */
+.hidden {
+    display: none !important;
+}

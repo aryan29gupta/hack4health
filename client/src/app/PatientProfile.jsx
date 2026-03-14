@@ -683,7 +683,10 @@ export default function PatientProfileDashboard() {
                           </div>
                         </div>
                         <div className="flex flex-col space-y-2">
-                          <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium">
+                          <button 
+                            onClick={() => navigate('/patient-call/main-room')}
+                            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium"
+                          >
                             Join Call
                           </button>
                         </div>
